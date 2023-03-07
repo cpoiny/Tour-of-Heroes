@@ -1,0 +1,24 @@
+.heroes li {
+    list-style: none;
+}
+.badge {
+    background-color: #405061;
+    margin : 0 15px 0 0;
+    width: 15%;
+    padding: 20px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.name {
+    font-weight: bold;
+}
+
+button {
+    width: 25vw;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 40px;
+}
