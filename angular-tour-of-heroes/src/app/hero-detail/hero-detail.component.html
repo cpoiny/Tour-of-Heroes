@@ -1,0 +1,12 @@
+<!-- Affichage des details si un heros est sélectionné, le lien avec le parent est fait grace à un @Input() pour récupérer un hero qui est le héro sélectionné -->
+
+<!-- hero du ngIf est dans le ts -->
+<div *ngIf="hero">
+    <h2> {{ hero.name | uppercase }} Details </h2>
+    <div> id: {{ hero.id}} </div>
+    <div>
+        <label for="hero-name"> Hero name :</label>
+        <!-- ngModel avec l import de ngForms pour pouvoir rendre dynamique l'input -->
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+</div>

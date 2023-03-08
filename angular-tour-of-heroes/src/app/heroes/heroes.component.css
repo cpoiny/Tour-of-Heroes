@@ -23,7 +23,6 @@
 }
 .heroes .name {
     font-weight: bold;
-    border: black solid 1px;
     text-align: center;
 }
 .heroes button:hover {
