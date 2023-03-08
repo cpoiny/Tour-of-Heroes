@@ -23,23 +23,23 @@
 
 
 <ul class="heroes">
+    <!-- Boucle sur la liste des heroes -->
     <li *ngFor="let hero of heroes">
-        <button type="button" (click)="onSelect(hero)">
-            <span class="badge">{{ hero.id }} </span>
-            <span class="name">{{ hero.name }}</span>
+
+        <!-- Liaison avec la class selected du css pour quand un heros est selectionné et fonction onSelect pour afficher les détails-->
+        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+            <span class="badge"> {{ hero.id }} </span>
+            <span class="name"> {{ hero.name }} </span>
         </button>
     </li>
+    <!-- Si un héros est selectionné on affiche ses details -->
     <div *ngIf="selectedHero">
         <h2> {{ selectedHero.name | uppercase }} Details </h2>
-        <div>id: {{ selectedHero.id}} </div>
-<div>
-    <label for="hero-name"> Hero name :</label>
-    <input id="hero-name" [(ngModel)]="selectedHero.name"    placeholder="name">
-
-</div>
-
-
-
-
+        <div> id: {{ selectedHero.id}} </div>
+        <div>
+            <label for="hero-name"> Hero name :</label>
+            <!-- ngModel avec l import de ngForms pour pouvoir rendre dynamique l'input -->
+            <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+        </div>
     </div>
 </ul>
