@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeroService } from '../service/hero.service';
+import { MessageService } from '../service/message.service';
 import { Hero } from './hero';
 
 @Component({
@@ -8,30 +9,30 @@ import { Hero } from './hero';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent {
- 
-  // on recupere le mock HEROES
-  heroes : Hero [] = [];
-  
 
-  //fonction pour selectionner les details d'un hero selectionné
+  // on recupere le mock HEROES
+  heroes: Hero[] = [];
+
   selectedHero?: Hero;
 
 
-constructor (
-  private heroService: HeroService
-) {}
+  constructor(
+    private heroService: HeroService,
+    private messageService: MessageService
+  ) { }
 
-ngOnInit() {
-  this.getHeroes();
-}
+  ngOnInit(): void {
+    this.getHeroes();
+  }
 
   getHeroes(): void {
     this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => this.heroes = heroes);
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.addMessage(`HeroesComponents : Hero Selected id= ${hero.id}`)
   }
 
 
