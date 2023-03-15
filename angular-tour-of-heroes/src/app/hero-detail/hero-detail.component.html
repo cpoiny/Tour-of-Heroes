@@ -8,5 +8,7 @@
         <label for="hero-name"> Hero name :</label>
         <!-- ngModel avec l import de ngForms pour pouvoir rendre dynamique l'input -->
         <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+
+        <button type="button" (click)="goBack()">go back</button>
     </div>
 </div>

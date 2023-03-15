@@ -12,14 +12,8 @@ export class HeroesComponent {
 
   // on recupere le mock HEROES
   heroes: Hero[] = [];
-
-  selectedHero?: Hero;
-
-
-  constructor(
-    private heroService: HeroService,
-    private messageService: MessageService
-  ) { }
+  
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -29,11 +23,4 @@ export class HeroesComponent {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
   }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.addMessage(`HeroesComponents : Hero Selected id= ${hero.id}`)
-  }
-
-
 }

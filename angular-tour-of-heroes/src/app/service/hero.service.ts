@@ -11,7 +11,7 @@ export class HeroService {
 
 
   constructor(
-    private messageService : MessageService
+    private messageService: MessageService
   ) { }
 
 
@@ -21,4 +21,13 @@ export class HeroService {
     this.messageService.addMessage('Hero Service : Fetched Heroes');
     return heroes;
   }
+
+
+  //Function to get one hero by his id in order to display his details with the component hero detail
+  getHero(id : number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id)!;
+    this.messageService.addMessage(`Hero fetched is id:${id}`);
+    return of(hero);
+  }
+
 }
