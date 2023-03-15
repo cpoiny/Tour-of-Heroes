@@ -25,13 +25,10 @@
 <ul class="heroes">
     <!-- Boucle sur la liste des heroes -->
     <li *ngFor="let hero of heroes">
-
-        <!-- Liaison avec la class selected du css pour quand un heros est selectionné et fonction onSelect pour afficher les détails-->
-        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+        <a routerLink="/detail/{{hero.id}}">
             <span class="badge"> {{ hero.id }} </span>
             <span class="name"> {{ hero.name }} </span>
-        </button>
+        </a>
     </li>
-    <!-- Si un héros est selectionné on affiche ses details -->
-   <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
 </ul>
